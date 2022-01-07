@@ -47,7 +47,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Optimize the performance of your own code (2/2)
 - Use profiling tools to find out how much time is spent in different parts of the code 
    - Docs: [Performance tools](https://docs.csc.fi/computing/performance/)
-- When the computing bottle-necks are identified try to figure out ways to improve the code. 
+- When the computing bottle-necks are identified, try to figure out ways to improve the code. 
    - Again, [servicedesk@csc.fi](mailto:servicedesk@csc.fi) is a channel to ask for help. The more concrete the problem is described, the better.
 
 
@@ -77,8 +77,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - It passes data-messages back and forth between the cores.
 
 # What is OpenMP? 
-- OpenMP (Open Multi-Processing) is a standard that utilize compute cores that share memory
-   - They do not need to send messages betwen each other. 
+- OpenMP (Open Multi-Processing) is a standard that utilizes compute cores that share memory
+   - They do not need to send messages between each other. 
 - Basically OpenMP is easier for beginners, but problems quickly arise with so called 'race conditions'. 
    - This appears when different compute cores process and update the same data without proper synchronization.
 
@@ -96,13 +96,13 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - In this case, there is likely a more efficient solution
 - If running your jobs become slightly more complex, with _e.g._ some minor dependencies, workflows can be used. 
    - Some potential solutions are listed on CSCs [High throughput page](https://docs.csc.fi/computing/running/throughput/)
-   - There are naturally lots of choice: [FireWorks](https://materialsproject.github.io/fireworks/), [Snakemake](https://snakemake.github.io/), [Knime](https://www.knime.com/), [BioBB](http://mmb.irbbarcelona.org/biobb/), ...
+   - There are naturally lots of choices: [FireWorks](https://materialsproject.github.io/fireworks/), [Snakemake](https://snakemake.github.io/), [Knime](https://www.knime.com/), [BioBB](http://mmb.irbbarcelona.org/biobb/), ...
 
 # Task farming 2.0
 
 - Task farming can be combined with _e.g._ OpenMP to speed up the subjobs,
 - And on top of those with MPI to run several jobs in parallel.
-   - In this setup you'd have three layers or parallelization array-MPI-OpenMP
+   - In this setup you'd have three layers or parallelization: array-MPI-OpenMP
    - Setting this up will take skill and time
    - Always test your setup - a typo can result in a lot of lost resources
 
@@ -130,7 +130,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Tricks of the trade 1/4
 
 - It is reasonable to try to achieve best performance by using the fastest computers available. This is however far from the only important issue.
-- Different codes may give very different performance. 
+- Different codes may give very different performances. 
     - Compare the options you have in [the CSC Software selection](https://docs.csc.fi/apps/)
 - Before launching massive simulations, look for the most efficient algorithms to get the job done.
     - (examples on the next slide)
@@ -148,10 +148,10 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Tricks of the trade 3/4
 
-- Try to first formulate your scientific results when you have a minimum amount of computational results
-    - it often helps to clarify what you still need to compute and what computations would be redundant.
-    - and what results you need to store
-- Reserving more memory resources and more compute cores does not necessary mean faster comutations.
+- Try to first formulate your scientific results when you have a minimum amount of computational results, it often helps to clarify
+    - what you still need to compute and what computations would be redundant
+    - what results you need to store
+- Reserving more memory resources and more compute cores does not necessary mean faster computations.
     - Check with `seff`, `sacct` and from the logs if the memory was used, and if the job ran faster
 - Testing for optimal setup regarding compute cores and memory is good practice before performing massive computations.
 
